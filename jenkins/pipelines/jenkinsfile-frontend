@@ -18,7 +18,7 @@ pipeline {
         }
         stage('Checkout from Git') {
             steps {
-                git credentialsId: 'GitHub', url: 'https://github.com/Uj5Ghare/E2E-EKS-Three-Tier-DevSecOps-Project.git'
+                git credentialsId: 'GitHub', url: 'https://github.com/Msr22rathore/E2E-EKS-Three-Tier-DevSecOps-Project.git'
             }
         }
         stage('Sonarqube Analysis') {
@@ -81,20 +81,20 @@ pipeline {
         }
         stage('Checkout Code') {
             steps {
-                git credentialsId: 'GitHub', url: 'https://github.com/Uj5Ghare/E2E-EKS-Three-Tier-DevSecOps-Project.git'
+                git credentialsId: 'GitHub', url: 'https://github.com/Msr22rathore/E2E-EKS-Three-Tier-DevSecOps-Project.git'
             }
         }
         stage('Update Deployment file') {
             environment {
                 GIT_REPO_NAME = 'E2E-EKS-Three-Tier-DevSecOps-Project'
-                GIT_USER_NAME = 'Uj5Ghare'
+                GIT_USER_NAME = 'Msr22rathore'
             }
             steps {
                 dir('k8s/eks/frontend') {
                     withCredentials([string(credentialsId: 'gh-token', variable: 'GH_TOKEN')]) {
                         sh '''
-                            git config user.email "ujwal5ghare@gmail.com"
-                            git config user.name "Uj5Ghare"
+                            git config user.email "sunnysingh.msr@gmail.com"
+                            git config user.name "Msr22rathore"
                             BUILD_NUMBER=${BUILD_NUMBER}
                             echo $BUILD_NUMBER
                             imageTag=$(grep -oP '(?<=frontend:)[^ ]+' deployment.yaml)
