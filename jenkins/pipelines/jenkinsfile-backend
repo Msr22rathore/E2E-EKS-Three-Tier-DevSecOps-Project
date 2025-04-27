@@ -81,6 +81,7 @@ pipeline {
         }
         stage('Checkout Code') {
             steps {
+                git branch: 'main',
                 git credentialsId: 'GitHub', url: 'https://github.com/Msr22rathore/E2E-EKS-Three-Tier-DevSecOps-Project.git'
             }
         }
