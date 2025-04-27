@@ -60,7 +60,7 @@ pipeline {
                     dir('app/backend') {
                             sh 'docker system prune -f'
                             sh 'docker container prune -f'
-                            sh 'docker build -t ${AWS_ECR_REPO_NAME} .'
+                            sh 'docker buildx build -t ${AWS_ECR_REPO_NAME} --push .'
                     }
                 }
             }
