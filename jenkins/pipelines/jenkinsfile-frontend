@@ -90,7 +90,7 @@ pipeline {
                 GIT_USER_NAME = 'Msr22rathore'
             }
             steps {
-                dir('k8s/eks/frontend') {
+                dir('k8s/manifests/frontend') {
                     withCredentials([string(credentialsId: 'gh-token', variable: 'GH_TOKEN')]) {
                         sh '''
                             git config user.email "sunnysingh.msr@gmail.com"
