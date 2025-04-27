@@ -1,6 +1,6 @@
 FROM node:14 AS frontend
 WORKDIR /usr/src/app
-COPY ../../../app/frontend/. .
+COPY app/frontend/. .
 RUN npm install
 
 FROM node:14.0.0-alpine
